@@ -51,7 +51,11 @@
         [<a href="https://doi.org/{{ paper.extra.doi }}">doi</a>]
     {% endif %}
     {% for text, url in paper.extra.links %}
+      {% if url is starting_with("http") %}
+        [<a href="{{ url }}">{{ text }}</a>]
+      {% else %}
         [<a href="{{ paper.permalink }}{{ url }}">{{ text }}</a>]
+      {% endif %}
     {% endfor %}
 </div>
 {% endif %}

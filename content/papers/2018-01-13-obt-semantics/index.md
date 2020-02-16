@@ -5,8 +5,8 @@ title = "Extensible Semantics for Fluidics"
 authors = ["mwillsey", "jroesch"]
 venue = "OBT at POPL"
 venue_url = "https://popl18.sigplan.org/track/OBT-2018"
-links.pdf = "obt-fluidics.pdf"
-links.slides = "obt-fluidics-slides.pdf"
+links.pdf = "2018-obt-fluidics.pdf"
+links.slides = "2018-obt-fluidics-slides.pdf"
 +++
 
 ## Abstract
