@@ -8,7 +8,7 @@ authors = ["mwillsey", "ashsteph", "cnt", "bichlien", "karin", "luis"]
 venue = "ICCAD 2019"
 venue_url = "https://iccad.com/event_details?id=283-9-B"
 note = "Invited Paper"
-links.pdf = "/papers/2019-iccad-puddle.pdf"
+links.pdf = "2019-iccad-puddle.pdf"
 bib = '''
 @inproceedings{willsey2019scaling,
   title = {Scaling Microfluidics to Complex, Dynamic Protocols},

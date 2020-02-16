@@ -5,7 +5,10 @@ title = "Design and Implementation of Concurrent C0"
 authors = ["mwillsey", "rokhini", "fp"]
 venue = "Fourth International Workshop on Linearity"
 venue_url = "http://eptcs.web.cse.unsw.edu.au/content.cgi?LINEARITY2016"
-links.pdf = "/papers/cc0-linear16.pdf"
+
+links.pdf = "cc0-linear16.pdf"
+links.benchmarks = "cc0-linear16-benchmarks.tgz"
+
 doi = "10.4204/EPTCS.238.8"
 bib = '''
 @inproceedings{cc0-design,

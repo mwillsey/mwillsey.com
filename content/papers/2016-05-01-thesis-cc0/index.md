@@ -7,9 +7,12 @@ type = "publication"
 authors = ["mwillsey"]
 venue = "Senior Honors Thesis"
 note = "Designated as _Exemplary Thesis_ by the senior thesis award committee"
-links.pdf = "/papers/cc0-thesis.pdf"
-links.poster = "/papers/cc0-MoM16-poster.pdf"
-links.slides = "/papers/cc0-MoM16-slides.pdf"
+
+links.pdf = "cc0-thesis.pdf"
+links.poster = "cc0-MoM16-poster.pdf"
+links.slides = "cc0-MoM16-slides.pdf"
+links.benchmarks = "cc0-thesis-benchmarks.tgz"
+
 bib = '''
 @mastersthesis{cc0-thesis,
   type   = {Undergraduate Honors Thesis},

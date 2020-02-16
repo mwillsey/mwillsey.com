@@ -12,7 +12,7 @@
   {{- self::link(text=people[key].name, url=url, class=class) -}}
 {% endmacro person %}
 
-{% macro paper(paper, title=true, container="div") %}
+{% macro paper(paper, title=true, container="div", links=true) %}
 <{{container}} class="paper">
 {% if title %}
   <div class="paper-title">
@@ -41,19 +41,20 @@
   </div>
 {% endif %}
 
-
 {% if paper.extra.note %}
     <div> {{ paper.extra.note | markdown(inline=true) | safe }} </div>
 {% endif %}
 
-<div>
+{% if links %}
+<div class="paper-links">
     {% if paper.extra.doi %}
         [<a href="https://doi.org/{{ paper.extra.doi }}">doi</a>]
     {% endif %}
     {% for text, url in paper.extra.links %}
-        [<a href="{{ url }}">{{ text }}</a>]
+        [<a href="{{ paper.permalink }}{{ url }}">{{ text }}</a>]
     {% endfor %}
 </div>
+{% endif %}
 
 </{{container}}>
 
