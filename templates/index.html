@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+{{ section.content | safe }}
+
+{% set papers = get_section(path="papers/_index.md") %}
+
+<section id="papers">
+  <h2> Papers </h2>
+  {% for paper in papers.pages %}
+    {{ macros::paper(paper=paper) }}
+  {% endfor %}
+</section>
+{% endblock content %}

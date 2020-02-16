@@ -1,0 +1,60 @@
+{% macro link(text, url, class="") %}
+  {%- if url -%}
+    <a href="{{ url }}" class="{{ class }}">{{ text }}</a>
+  {%- else -%}
+    <span class="{{ class }}">{{ text }}</span>
+  {%- endif -%}
+{% endmacro link %}
+
+{% macro person(key, class="") %}
+  {% set people = load_data(path="data/people.toml") %}
+  {% set url = people[key].webpage | default(value=false) %}
+  {{- self::link(text=people[key].name, url=url, class=class) -}}
+{% endmacro person %}
+
+{% macro paper(paper, title=true, container="div") %}
+<{{container}} class="paper">
+{% if title %}
+  <div class="paper-title">
+    <a href="{{ paper.permalink }}">{{ paper.title }}</a>
+  </div>
+{% endif %}
+
+<div class="paper-authors">
+    <ul class="comma-list">
+        {% for a in paper.extra.authors %}
+            {%- if a == "mwillsey" -%}
+                {% set class = "author me" %}
+            {%- else -%}
+                {% set class = "author" %}
+            {%- endif -%}
+            <li>{{- self::person(key=a, class=class) -}}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% if paper.extra.venue %}
+  <div class="paper-venue">
+    {% set url = paper.extra.venue_url | default(value=false) %}
+    {{ self::link(text=paper.extra.venue, url=url) }},
+    {{ paper.date | date(format='%B %Y') }}
+  </div>
+{% endif %}
+
+
+{% if paper.extra.note %}
+    <div> {{ paper.extra.note | markdown(inline=true) | safe }} </div>
+{% endif %}
+
+<div>
+    {% if paper.extra.doi %}
+        [<a href="https://doi.org/{{ paper.extra.doi }}">doi</a>]
+    {% endif %}
+    {% for text, url in paper.extra.links %}
+        [<a href="{{ url }}">{{ text }}</a>]
+    {% endfor %}
+</div>
+
+</{{container}}>
+
+{% endmacro paper %}
