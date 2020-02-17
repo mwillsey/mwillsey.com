@@ -15,56 +15,27 @@
     <link rel="stylesheet" href="/main.css">
 </head>
 <body>
-<div id="container">
+  <nav>
+    <div id="name">
+      <a href="/">Max Willsey</a>
+    </div>
+    <div id="links">
+      <a href="mailto:me@mwillsey.com">me@mwillsey.com</a>
+      <a href="https://github.com/mwillsey">GitHub</a>
+      <a href="https://twitter.com/mwillsey">Twitter</a>
+      <a href="https://scholar.google.com/citations?user=zko9-RwAAAAJ&hl=en">Google Scholar</a>
+    </div>
+  </nav>
+  <main>
+    {% block content %}
+      {{ section.content | safe }}
+    {% endblock content %}
+  </main>
 
-    <aside>
-        <div id="photo" class="screen-only">
-            <a href="/">
-                <img alt="Max Willsey" title="Max Willsey" src="/assets/max.jpg">
-            </a>
-        </div>
-        <h1 id="name-header"> <a href="/"> Max Willsey </a> </h1>
-        <section id="contact">
-            <address>
-                <a href="mailto:me@mwillsey.com">me@mwillsey.com</a>
-            </address>
-            <address class="print-only">
-                <a href="https://www.mwillsey.com">mwillsey.com</a>
-            </address>
-            <address class="screen-only">
-                <a href="https://github.com/mwillsey">GitHub</a>
-            </address>
-            <address class="screen-only">
-                <a href="https://twitter.com/mwillsey">Twitter</a>
-            </address>
-            <input type="checkbox" id="academic-links" class="toggle-input screen-only">
-            <label class="toggle-label screen-only" for="academic-links">Academic Links</label>
-            <div class="toggle-content screen-only">
-                <address>
-                    <a href="https://orcid.org/0000-0001-8066-4218">ORCID</a>
-                </address>
-                <address>
-                    <a href="http://dblp.uni-trier.de/pers/hd/w/Willsey:Max">DBLP</a>
-                </address>
-                <address>
-                    <a href="https://scholar.google.com/citations?user=zko9-RwAAAAJ&hl=en">Google Scholar</a>
-                </address>
-            </div>
-        </section>
-    </aside>
-
-    <main>
-      {% block content %}
-        {{ section.content | safe }}
-      {% endblock content %}
-    </main>
-
-</div>
-
-<footer>
-  Site last updated on {{ now() | date(format="%Y-%m-%d") }}.
-  Edit me on <a href="https://github.com/mwillsey/mwillsey.com/">Github</a>.
-</footer>
+  <footer>
+    Site last updated on {{ now() | date(format="%Y-%m-%d") }}.
+    Edit me on <a href="https://github.com/mwillsey/mwillsey.com/">Github</a>.
+  </footer>
 
 </body>
 <script>

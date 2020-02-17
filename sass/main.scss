@@ -1,46 +1,39 @@
-$accent: #217800;
-$accent-light: rgba( $accent, .2 );
+@import "tufte.scss";
+
+// $accent: #217800;
+// $accent-light: rgba( $accent, .2 );
 $dim:    #999;
 
-$desktop-width: 800px;
-
-@mixin desktop {
-    @media only screen and (min-width: #{$desktop-width}) {
+@mixin small {
+    @media only screen and (max-width: 760px) {
         @content;
     }
 }
 
-body {
-    font-family: Palatino, serif;
-    margin: 0 auto; /* center the page */
-    max-width: $desktop-width + 200px;
-}
-
-a {
-    text-decoration: underline $accent-light;
-    color: $accent;
-    code {
-        color: $accent;
+nav {
+    font-style: italic;
+    line-height: 2;
+    #name {
+        float: left;
+        font-size: 1.4rem;
+        margin-left: 0;
+        a { text-decoration: none; }
+    }
+    #links {
+        float: right;
+        a + a { margin-left: 10px; }
+    }
+    @include small {
+        #name, #links { float: none }
     }
 }
 
-a:hover, a:focus, a.active {
-    text-decoration: underline;
-}
+img { border-radius: 3px; }
 
-#name-header a {
-    color: black;
-    text-decoration: none;
-}
+a:link, a:visited { color: inherit }
+a:hover { color: $dim }
 
-pre {
-    margin-left: 2em;
-}
-
-code {
-    color: #444;
-    font-size: 115%;
-}
+main { clear: both };
 
 details.bibtex {
     margin: 1em 0;
@@ -50,67 +43,10 @@ details.bibtex {
     }
 }
 
-// input should come first
-.toggle-input {
-    display: none;
+html { scroll-behavior: smooth; }
 
-    &:checked {
-        & ~ .toggle-label:after {
-            content: ' –';
-        }
-        & ~ .toggle-content {
-            height: auto;
-        }
-    }
-
-}
-.toggle-label:after {
-    content: ' +';
-}
-.toggle-content {
-    height: 0;
-    overflow: hidden;
-}
-
-#container {
-    display: flex;
-    flex-flow: row wrap;
-}
-
-aside {
-    flex: 1 100%;
-    margin: 1em;
-    @include desktop {
-        flex: 1 0;
-    }
-}
-
-main {
-    flex: 1 100%;
-    margin: 1em;
-    @include desktop {
-        flex: 3 0;
-    }
-}
-
-img {
-    max-width: 150px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    border: 3px solid $dim;
-}
-
-#papers {
-    dd {
-        margin-left: 2em;
-        text-indent: -1em;
-    }
-    .author .me { font-weight:bold; }
-    .paper-title {
-        font-size: 110%;
-        margin-top: 1em;
-    }
-}
+.author.me { font-weight: bold; }
+.paper-title { margin-bottom: 0; }
 
 #news {
     // remove markdown paragraph spacing
@@ -122,9 +58,9 @@ img {
         list-style: none;
 
         > li {
-            margin-top: 1em;
             > ul {
-                padding-left: 1em;
+                padding-left: 40px;
+                margin-bottom: 1em;
                 list-style: disc;
                 > li {
                     margin-top: 0.3em;
@@ -132,10 +68,6 @@ img {
             }
         }
     }
-}
-
-.me {
-    font-weight: bolder
 }
 
 .comma-list {
@@ -151,30 +83,6 @@ img {
 }
 
 footer {
-    border-top: solid 1px #DDD;
-    padding: 1em;
-    margin: 0em 1em;
-    text-align: center;
     color: $dim;
     font-size: 50%;
-}
-
-@media screen {
-    .print-only { display: none }
-}
-
-@media print {
-    main, aside {
-        flex: 0 1 auto;
-        overflow: visible !important;
-    }
-    a { color: black }
-    #container { display: block }
-    .screen-only { display: none }
-    .avoid-break { page-break-inside: avoid }
-    main, aside { margin: 0 }
-    address {
-        display: inline;
-        padding-right: 1em;
-    }
 }

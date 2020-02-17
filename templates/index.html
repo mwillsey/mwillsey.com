@@ -7,8 +7,10 @@
 
 <section id="papers">
   <h2> Papers </h2>
+  <ul class="papers">
   {% for paper in papers.pages %}
-    {{ macros::paper(paper=paper, links=false) }}
+    {{ macros::paper(paper=paper, links=false, container="li") }}
   {% endfor %}
+  </ul>
 </section>
 {% endblock content %}

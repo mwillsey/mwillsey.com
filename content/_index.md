@@ -1,7 +1,14 @@
 +++
+title = "Max Willsey"
 +++
 
 <section id="intro">
+
+<p>
+  <span id="max-photo" class="marginnote" style="display: block">
+    <img src="/assets/max.jpg">
+  </span>
+<p>
 
 I'm a fourth-year Ph.D. candidate at the University of Washington
 [Paul G. Allen School of Computer Science & Engineering][allen].
@@ -19,6 +26,7 @@ way to program these devices.
 [plse]:  http://uwplse.org
 [misl]:  http://misl.cs.washington.edu
 [puddle]: http://misl.cs.washington.edu/projects/fluidics.html
+
 
 </section>
 

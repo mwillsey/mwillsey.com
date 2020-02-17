@@ -15,23 +15,21 @@
 {% macro paper(paper, title=true, container="div", links=true) %}
 <{{container}} class="paper">
 {% if title %}
-  <div class="paper-title">
+  <h3 class="paper-title">
     <a href="{{ paper.permalink }}">{{ paper.title }}</a>
-  </div>
+  </h3>
 {% endif %}
 
-<div class="paper-authors">
-    <ul class="comma-list">
-        {% for a in paper.extra.authors %}
-            {%- if a == "mwillsey" -%}
-                {% set class = "author me" %}
-            {%- else -%}
-                {% set class = "author" %}
-            {%- endif -%}
-            <li>{{- self::person(key=a, class=class) -}}</li>
-        {% endfor %}
-    </ul>
-</div>
+<ul class="paper-authors comma-list">
+    {% for a in paper.extra.authors %}
+        {%- if a == "mwillsey" -%}
+            {% set class = "author me" %}
+        {%- else -%}
+            {% set class = "author" %}
+        {%- endif -%}
+        <li>{{- self::person(key=a, class=class) -}}</li>
+    {% endfor %}
+</ul>
 
 {% if paper.extra.venue %}
   <div class="paper-venue">
