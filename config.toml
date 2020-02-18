@@ -2,7 +2,10 @@
 base_url = "https://mwillsey.com"
 
 compile_sass = true
-highlight_code = false
+
+highlight_code = true
+highlight_theme = "Tomorrow"
+
 build_search_index = false
 
 title = "Max Willsey"
