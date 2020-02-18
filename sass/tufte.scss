@@ -24,14 +24,14 @@ h1, h2, h3 {
 h1 {
     font-weight: 400;
     font-size: 2rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
     margin-bottom: 1.2rem;
 }
 
 h2 {
     font-style: italic;
     font-size: 1.6rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
     margin-bottom: 1rem;
 }
 
@@ -183,6 +183,7 @@ img {
     margin-bottom: 0;
     vertical-align: baseline;
     position: relative;
+    padding-bottom: 1em;
 }
 
 .sidenote-number {
