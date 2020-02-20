@@ -10,6 +10,10 @@ $dim:    #999;
     }
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 nav {
     font-style: italic;
     line-height: 2;
@@ -33,7 +37,7 @@ img { border-radius: 3px; }
 a:link, a:visited { color: inherit }
 a:hover { color: $dim }
 
-main { clear: both };
+main { clear: both }
 
 details.bibtex {
     margin: 1em 0;
@@ -44,7 +48,6 @@ details.bibtex {
 }
 
 pre { background-color: inherit !important };
-html { scroll-behavior: smooth; }
 
 .author.me { font-weight: bold; }
 .paper-title { margin-bottom: 0; }
