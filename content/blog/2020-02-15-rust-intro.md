@@ -232,7 +232,7 @@ its argument, but we could instead implement it to work on a borrowed
 `Expr`.
 This would be more permissive to the caller and more idiomatic; it
 expresses the fact that I don't need to _take_ an `Expr` to `eval` it,
-I just need too look at it.
+I just need to look at it.
 
 ```rust
 fn eval(expr: &Expr) -> i32 {
