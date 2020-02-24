@@ -17,18 +17,27 @@ html {
 nav {
     font-style: italic;
     line-height: 2;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    #max-photo img { display: block }
+
+    #name, #links { text-align: center }
     #name {
-        float: left;
         font-size: 1.4rem;
         margin-left: 0;
         a { text-decoration: none; }
     }
     #links {
-        float: right;
+        margin-right: 2rem;
         a + a { margin-left: 10px; }
+        a { white-space: nowrap; }
     }
+
     @include small {
-        #name, #links { float: none }
+        display: inline;
     }
 }
 
