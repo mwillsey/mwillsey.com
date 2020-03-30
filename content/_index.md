@@ -34,6 +34,10 @@ way to program these devices.
 
 ## News
 
+- 2020 Mar
+  - Some friends and I wrote a fun [paper](/papers/pldi-szalinski) about
+    synthesizing 3D CAD models. It will appear (virtually!) at PLDI 2020.
+
 - 2019 Dec
   - I passed my generals exam, so I’m now a PhD candidate!
 

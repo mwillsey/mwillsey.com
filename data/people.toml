@@ -72,3 +72,26 @@ webpage = "https://www.microsoft.com/en-us/research/people/dcarmean/"
 [kendall]
 name = "Kendall Stewart"
 webpage = "https://homes.cs.washington.edu/~kstwrt/"
+
+[cnandi]
+name = "Chandrakana Nandi"
+webpage = "https://homes.cs.washington.edu/~cnandi/"
+
+[djg]
+name = "Dan Grossman"
+webpage = "https://homes.cs.washington.edu/~djg/"
+
+[jrw]
+name = "James Wilcox"
+webpage = "http://jamesrwilcox.com/"
+
+[eva]
+name = "Eva Darulova"
+webpage = "https://people.mpi-sws.org/~eva/"
+
+[adama]
+name = "Adam Anderson"
+
+[ztatlock]
+name = "Zach Tatlock"
+webpage = "https://homes.cs.washington.edu/~ztatlock/"
