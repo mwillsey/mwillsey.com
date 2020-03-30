@@ -50,7 +50,7 @@ coordinated changes, and existing mesh decom-pilers use heuristics that can
 obfuscate high-level structure.
 
 This paper proposes a second decompilation stage
-to robustly “shrink” unstructured CSG expressions into moreeditable programs
+to robustly “shrink” unstructured CSG expressions into more editable programs
 with map and fold operators.
 We present Szalinski, a tool that uses Equality
 Saturation with semantics-preserving CAD rewrites to efficiently search for
