@@ -8,7 +8,7 @@ Many of my recent projects are written in [Rust], a new-ish systems
 programming language with the stated goal of "empowering everyone to build
 reliable and efficient software."
 I'm a big fan, and so are others.
-{% marginnote(id="stackoverflow") %}
+{% note() %}
   Rust has been the
   [most loved](https://insights.stackoverflow.com/survey/2019#most-loved-dreaded-and-wanted)
   language on StackOverflow for four years running.
@@ -17,7 +17,7 @@ I think Rust gets a lot of things right on the tooling and language
 side that make it fun to program in.
 
 There are a ton of cool Rust libraries out there,
-{% marginnote(id="crates.io") %}
+{% note() %}
   You can find most Rust libraries on [crates.io](https://crates.io),
   including one of mine: [egg](https://crates.io/crates/egg).
 {% end %}
@@ -33,6 +33,7 @@ You should definitely read the [book], but maybe this will get you off the
 ground faster.
 We'll implement a simple arithmetic interpreter and explore some of the more
 important types and concepts you'll see when interacting with Rust code.
+
 
 </section>
 <section id="first-steps">
@@ -51,7 +52,7 @@ with Rust.
 
 Now let's create a new project with `cargo new --lib demo`.
 This makes a new directory called `demo` and sets it up to make a Rust library.
-{% marginnote(id="libflag") %}
+{% note() %}
   Without the `--lib` flag, `cargo` will set you up to make a binary
   project.
   I find it easier to start with a library because it's easier to make
@@ -70,7 +71,7 @@ Inside `demo`, you should find two files:
 Notice how `lib.rs` is already set up for you with a test marked with the
 `#[test]` attribute.
 This test lives in a module called `tests`
-{% marginnote(id="testsmodule") %}
+{% note() %}
   The name of the module `tests` is not special, it's just convention.
 {% end %}
 that is
@@ -119,7 +120,7 @@ I'll try cover some Rust-isms that may be less familiar.
 
 In Rust, `enum`s are [algebraic data types][adt], so variants can carry data or
 even be generic.
-{% marginnote(id="record") %}
+{% note() %}
   We could have used record-like syntax:\\
   `Add { l: Box<Expr, r: Box<Expr> }`,
   which can be useful when the fields are not obvious from position.
@@ -169,7 +170,7 @@ error[E0072]: recursive type `Expr` has infinite size
 ```
 
 You should still be getting warnings about unused types and functions.
-{% marginnote(id="warnings") %}
+{% note() %}
   These and many warnings are easily silenced by placing a
   module-level attribute at the top of the file:
   `#![allow(dead_code)]`
@@ -203,7 +204,7 @@ Expr::Add(l, r) => {
 ```
 
 We've consumed `*r`,
-{% marginnote(id="consumed") %}
+{% note() %}
   On the `Box` type, the deref operator `*` gets you the inner type.
 {% end %}
 but then we try to use it again!
@@ -249,7 +250,7 @@ The differences here are subtle and worth unpacking.
 We've changed the type of the parameter `expr` from an owned `Expr` to
 an immutably borrowed `&Expr`.
 We can still `match` on a borrowed value, but this time a little bit of magic
-{% marginnote(id="match-magic") %}
+{% note() %}
   Pattern matching on references used to be more involved.
   Check out the
   [RFC](https://github.com/rust-lang/rfcs/blob/master/text/2005-match-ergonomics.md)
@@ -271,17 +272,18 @@ type `&Expr`, allowing us to make the recursive call without further
 modification.
 
 We can write a test
-{% marginnote(id="test-module") %}
+{% note() %}
   Tests conventionally go in the `tests` module, but they will run
   outside of it as well.
 {% end %}
 that shows we can indeed `eval` the same `Expr` twice:
 
-{% marginnote(id="macro") %}
+{% note() %}
   The `!` in [`assert_eq!`](https://doc.rust-lang.org/stable/std/macro.assert_eq.html)
   means you're calling a
   [macro](https://doc.rust-lang.org/book/ch19-06-macros.html).
 {% end %}
+
 ```rust
 #[cfg(test)]
 mod tests {
@@ -345,7 +347,7 @@ assert_eq!(Expr::eval(&e), 4);
 
 See how `e` is an owned `Expr`, and `eval` takes it's argument by
 reference, but we don't need to borrow to call the method?
-{% marginnote(id="autoborrow") %}
+{% note() %}
   If you want to be really extra explicit, `(&e).eval()` still works.
 {% end %}
 The method syntax also buys you _automatic borrowing_ of the receiver.
@@ -453,7 +455,7 @@ impl Expr {
 We'll need some helper methods on `Value` to forcibly get the right types out.
 These will crash the program if called on the wrong `Value`.
 
-{% marginnote(id="string") %}
+{% note() %}
   The
   [`panic!`](https://doc.rust-lang.org/stable/std/macro.panic.html)
   macro, like the
@@ -466,6 +468,7 @@ These will crash the program if called on the wrong `Value`.
   See the [`std::fmt`](https://doc.rust-lang.org/stable/std/fmt/index.html)
   docs for more.
 {% end %}
+
 ```rust
 impl Value {
     fn to_num(&self) -> i32 {
@@ -517,20 +520,21 @@ For now we'll just use [`String`] as the error type:
 Let's make our `to_num` and `to_bool` methods return
 [`Result`]s.
 
-{% marginnote(id="result-variant") %}
+{% note() %}
   `Ok` and `Err`, the variants of
   [`Result`](https://doc.rust-lang.org/stable/std/result/index.html),
   are in Rust's
   [prelude](https://doc.rust-lang.org/stable/std/prelude/index.html)
   and so are scope by default.
 {% end %}
-{% marginnote(id="format-macro") %}
+{% note() %}
   The
   [`format!`](https://doc.rust-lang.org/stable/std/macro.format.html)
   macro returns a
   [`String`](https://doc.rust-lang.org/stable/std/string/struct.String.html),
   which we're using as an error type.
 {% end %}
+
 ```rust
 impl Value {
     fn to_num(&self) -> Result<i32, String> {
@@ -597,7 +601,7 @@ match x {
 
 The `?` is inserting early returns into our function, bailing if the
 given expression is an `Err`.
-{% marginnote(id="qmark") %}
+{% note() %}
   `?` also performs coercion on the `Err`
   using the [`From`](https://doc.rust-lang.org/stable/std/convert/trait.From.html)
   trait.
@@ -657,7 +661,7 @@ We can make this a lot better by taking advantage of the important
 
 Let's start with values.
 We want to make it so `i32`s and `bool`s know how to make themselves _into_ `Value`s.
-{% marginnote(id="from") %}
+{% note() %}
   For technical reasons, we always implement the
   [`From`](https://doc.rust-lang.org/stable/std/convert/trait.From.html) instead of
   [`Into`](https://doc.rust-lang.org/stable/std/convert/trait.Into.html).
@@ -700,7 +704,7 @@ impl<V: Into<Value>> From<V> for Expr {
 ```
 
 
-{% marginnote(id="frominto") %}
+{% note() %}
   We get that
   [`Into`](https://doc.rust-lang.org/stable/std/convert/trait.Into.html)
   implementation for free because we implemented the corresponding
@@ -717,11 +721,12 @@ Rust has some equivalent ways to express
 [trait bounds](https://doc.rust-lang.org/book/ch10-02-traits.html#trait-bound-syntax)
 on generics, so I'll write the same function three ways.
 
-{% marginnote(id="tyvar") %}
+{% note() %}
   We cannot just reuse the type variable `T1` for both arguments,
   since that would unnecessarily constrain the two input types to be identical.
   All we care is that they both implement `Into<Expr>`.
 {% end %}
+
 ```rust
 fn add<T1: Into<Expr>, T2: Into<Expr>>(l: T1, r: T2) -> Expr {
     Expr::Add(Box::new(l.into()), Box::new(r.into()))

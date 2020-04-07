@@ -4,11 +4,7 @@ title = "Max Willsey"
 
 <section id="intro">
 
-<p>
-  <span id="max-photo" class="marginnote" style="display: block">
-    <img src="/assets/max.jpg">
-  </span>
-<p>
+<img id="max-photo" class="right" src="/assets/max.jpg">
 
 I'm a fourth-year Ph.D. candidate at the University of Washington
 [Paul G. Allen School of Computer Science & Engineering][allen].

@@ -1,0 +1,9 @@
+<label class="note right">
+  <input type="checkbox"/>
+  <span class="note-body">
+    <span class="note-toggle">&oplus;</span>
+    <span class="note-content">
+      {{ body | markdown(inline=true) | safe }}
+    </span>
+  </span>
+</label>

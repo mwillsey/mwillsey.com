@@ -1,12 +1,63 @@
-@import "tufte.scss";
+$accent: #217800;
+$accent-light: rgba( $accent, .2 );
+$dim:    #666;
 
-// $accent: #217800;
-// $accent-light: rgba( $accent, .2 );
-$dim:    #999;
+$desktop-width: 1000px;
 
-@mixin small {
-    @media only screen and (max-width: 760px) {
-        @content;
+$middle: 2;
+$right: 1;
+$total: $middle + $right;
+
+// middle as a percent of everything
+$middle-pct: $middle / $total * 100%;
+// right as a percentage of the rest
+$right-pct: $right / ($total - $right) * 100%;
+
+
+@media (min-width: $desktop-width) {
+    main {
+        clear: both;
+        max-width: $middle-pct;
+    }
+
+    .fullwidth {
+        display: block;
+        margin-left: 0;
+        margin-right: -$right-pct;
+    }
+
+    .right {
+        display: block;
+        float: right;
+        clear: right;
+        margin-right: -$right-pct;
+        width: $right-pct - 5%;
+        text-align: left;
+    }
+
+    nav {
+        #name { float: left; }
+        #links { float: right; }
+    }
+
+    .note {
+        margin-bottom: 1em;
+        input, .note-toggle { display: none }
+    }
+}
+
+@media (max-width: $desktop-width - 1) {
+    label.note {
+        color: $dim;
+        input, .note-content { display: none }
+        .note-toggle {
+            transition: 300ms ease all;
+            display: inline-block;
+        }
+        input:checked + .note-body {
+            .note-toggle { transform: rotate(45deg) }
+            .note-content { display: inline }
+        }
     }
 }
 
@@ -14,39 +65,41 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    max-width: 1200px;
+    padding: 2em;
+    margin: auto;
+    color: #111;
+    background: #fcfcf7;
+}
+
 nav {
-    font-style: italic;
-    line-height: 2;
+    text-align: center;
+    a { white-space: nowrap; }
+    margin-bottom: 2em;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    #max-photo img { display: block }
-
-    #name, #links { text-align: center }
     #name {
         font-size: 1.4rem;
-        margin-left: 0;
-        a { text-decoration: none; }
-    }
-    #links {
-        margin-right: 2rem;
-        a + a { margin-left: 10px; }
-        a { white-space: nowrap; }
+        a { text-decoration: none }
+        margin-bottom: 1em;
     }
 
-    @include small {
-        display: inline;
+    #links {
+        a + a { margin-left: 10px; }
     }
 }
 
-img { border-radius: 3px; }
 
-a:link, a:visited { color: inherit }
-a:hover { color: $dim }
+img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    max-height: 40vh;
+    border-radius: 3px;
+}
 
-main { clear: both }
+a:link, a:visited { color: $accent }
+a:hover { color: lighten( $accent, 10% ) }
 
 details.bibtex {
     margin: 1em 0;
@@ -56,10 +109,11 @@ details.bibtex {
     }
 }
 
+// cancel out code backgrounds
 pre { background-color: inherit !important };
 
 .author.me { font-weight: bold; }
-.paper-title { margin-bottom: 0; }
+.paper-title { font-weight: normal; margin-bottom: 0; }
 
 #news {
     // remove markdown paragraph spacing
@@ -97,5 +151,5 @@ pre { background-color: inherit !important };
 
 footer {
     color: $dim;
-    font-size: 50%;
+    font-size: 70%;
 }
