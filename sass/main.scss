@@ -94,8 +94,8 @@ img {
     display: block;
     margin: auto;
     max-width: 100%;
-    max-height: 40vh;
     border-radius: 3px;
+    object-fit: scale-down;
 }
 
 a:link, a:visited { color: $accent }
