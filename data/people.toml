@@ -95,3 +95,14 @@ name = "Adam Anderson"
 [ztatlock]
 name = "Zach Tatlock"
 webpage = "https://homes.cs.washington.edu/~ztatlock/"
+
+[pavel]
+name = "Pavel Panchekha"
+webpage = "https://pavpanchekha.com/"
+
+[remy]
+name = "Remy Wang"
+webpage = "https://homes.cs.washington.edu/~remywang/"
+
+[oflatt]
+name = "Oliver Flatt"

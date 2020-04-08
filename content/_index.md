@@ -30,6 +30,13 @@ way to program these devices.
 
 ## News
 
+- 2020 Apr
+  - I've been working on this e-graph library called 
+    [egg](https://github.com/mwillsey/egg) for a while.
+    I and my fellow egg-heads put out a 
+    [paper](/papers/egg)
+    describing the system and some of its novel ideas.
+    
 - 2020 Mar
   - Some friends and I wrote a fun [paper](/papers/pldi-szalinski) about
     synthesizing 3D CAD models. It will appear (virtually!) at PLDI 2020.
