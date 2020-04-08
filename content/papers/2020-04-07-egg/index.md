@@ -8,6 +8,7 @@ authors = ["mwillsey", "remy", "oflatt", "cnandi", "pavel", "ztatlock"]
 venue = "Preprint"
 
 links.arXiv = "https://arxiv.org/abs/2004.03082"
+links.GitHub = "https://github.com/mwillsey/egg"
 
 bib = '''
 @misc{2020-egg,

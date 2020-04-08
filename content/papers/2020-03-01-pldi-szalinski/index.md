@@ -10,6 +10,7 @@ venue_url = "https://pldi20.sigplan.org/details/pldi-2020-papers/52/Synthesizing
 
 links.pdf = "2020-pldi-szalinski.pdf"
 links.arXiv = "https://arxiv.org/abs/1909.12252"
+links.GitHub = "https://github.com/uwplse/szalinski"
 
 bib = '''
 @inproceedings{2020-pldi-szalinski,
