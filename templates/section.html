@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block title %}
+  {{ section.title | markdown(inline=true) | striptags }}
+{% endblock title %}
+
 {% block content %}
 <h1> {{ section.title }} </h1>
 
@@ -11,7 +15,7 @@
 <ul>
   {% for post in posts %}
   <li>
-    <a href="{{ post.permalink }}">{{ post.title }}</a>
+    <a href="{{ post.permalink }}">{{ post.title | markdown(inline=true) | safe }}</a>
     {% if post.summary %}
       {{ post.summary | safe }}
     {% endif %}

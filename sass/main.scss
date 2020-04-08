@@ -1,4 +1,4 @@
-$accent: #217800;
+$accent: #1b6600;
 $accent-light: rgba( $accent, .2 );
 $dim:    #666;
 
@@ -98,8 +98,10 @@ img {
     object-fit: scale-down;
 }
 
+code { font-size: 130% }
+
 a:link, a:visited { color: $accent }
-a:hover { color: lighten( $accent, 10% ) }
+a:hover {color: lighten( $accent, 10% )}
 
 details.bibtex {
     margin: 1em 0;
@@ -114,6 +116,10 @@ pre { background-color: inherit !important };
 
 .author.me { font-weight: bold; }
 .paper-title { font-weight: normal; margin-bottom: 0; }
+
+ul.papers a:link:not(:hover) {
+    text-decoration: none;
+}
 
 #news {
     // remove markdown paragraph spacing

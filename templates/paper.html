@@ -2,10 +2,7 @@
 {% import "macros.html" as macros %}
 
 {% block content %}
-
-<h1> {{ page.title }} </h1>
-
-<section>
+<h1> {{ page.title | markdown(inline=true) | safe }} </h1>
 
 {{ macros::paper(paper=page, title=false, links=true, class="fullwidth") }}
 
@@ -17,6 +14,5 @@
 {% endif %}
 
 {{ page.content | safe }}
-</section>
 
 {% endblock content %}

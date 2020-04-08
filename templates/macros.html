@@ -16,7 +16,7 @@
 <{{container}} class="paper">
 {% if title %}
   <h3 class="paper-title">
-    <a href="{{ paper.permalink }}">{{ paper.title }}</a>
+    <a href="{{ paper.permalink }}">{{ paper.title | markdown(inline=true) | safe }}</a>
   </h3>
 {% endif %}
 
