@@ -9,6 +9,7 @@ venue = "PLDI 2020"
 venue_url = "https://pldi20.sigplan.org/details/pldi-2020-papers/52/Synthesizing-Structured-CAD-Models-with-Equality-Saturation-and-Inverse-Transformatio"
 
 links.pdf = "2020-pldi-szalinski.pdf"
+links.arXiv = "https://arxiv.org/abs/1909.12252"
 
 bib = '''
 @inproceedings{2020-pldi-szalinski,
