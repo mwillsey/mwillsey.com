@@ -16,7 +16,7 @@ serve:
 	$(ZOLA) serve --port $(SERVE_PORT)
 
 RCLONE := rclone copy --progress --verbose
-DEPLOY_PATH ?= fastmail-webdav:me.mwillsey.com/files/public/
+DEPLOY_PATH ?= fastmail:me.mwillsey.com/files/public/
 
 deploy: build
 	$(RCLONE) public/ $(DEPLOY_PATH)
