@@ -14,7 +14,7 @@ links.GitHub = "https://github.com/uwplse/szalinski"
 
 bib = '''
 @inproceedings{2020-pldi-szalinski,
-  title  = {Synthesizing Structured CAD Models with Equality Saturation and Inverse Transformations},
+  title = {Synthesizing Structured {CAD} Models with Equality Saturation and Inverse Transformations},
   author = {
     Chandrakana Nandi and
     Max Willsey and
@@ -24,9 +24,18 @@ bib = '''
     Dan Grossman and
     Zachary Tatlock
   },
-  booktitle = {PLDI '20},
-  series = {PLDI '20},
   year = {2020},
+  isbn = {9781450376136},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/3385412.3386012},
+  doi = {10.1145/3385412.3386012},
+  booktitle = {Proceedings of the 41st ACM SIGPLAN Conference on Programming Language Design and Implementation},
+  pages = {31–44},
+  numpages = {14},
+  keywords = {Program Synthesis, Equality Saturation, Computer-Aided Design, Decompilation},
+  location = {London, UK},
+  series = {PLDI 2020},
 }
 '''
 +++
@@ -63,3 +72,6 @@ We qualitatively evaluate Szalinski in case studies, show how it composes with a
 existing mesh decompiler, and demonstrate that Szalinski can shrink large models
 in seconds.
 
+## Overview Video
+
+<iframe width="966" height="543" src="https://www.youtube.com/embed/dnIWBnpZqSo?start=140" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
