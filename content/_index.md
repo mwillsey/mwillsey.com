@@ -8,20 +8,30 @@ title = "Max Willsey"
 
 I'm a fourth-year Ph.D. candidate at the University of Washington
 [Paul G. Allen School of Computer Science & Engineering][allen].
-I work between the [PLSE][] and [MISL][] groups
-using programming language techniques in conventional and
-unconventional domains.
+I work mostly in programming languages ([PLSE] group),
+  but I enjoy collaborating with friends in 
+  molecular systems ([MISL]),
+  and machine learning systems ([SAMPL]).
+  
+I'm currently working on [egg], a toolkit for program optimization and synthesis
+powered by e-graphs and equality saturation.
+We've applied it to some really fun domains like
+  [improving floating point accuracy](https://herbie.uwplse.org),
+  [shrinking 3D models](/papers/pldi-szalinski),
+  and 
+  [linear algebra optimization](https://arxiv.org/abs/2002.07951).
 
-I'm currently working on programming models for microfluidic chips. These
-architectures promise to make labs-on-a-chip (LoCs) scalable and affordable, but
-issues like high error rates, resource management, and concurrency make them
-difficult to program. The [Puddle][] framework aims to provide a safer, easier
-way to program these devices.
+I've also worked on programming models for microfluidic chips. 
+The [Puddle][] framework aims to provide a safer, easier
+way to program these devices, which promise to make labs-on-a-chip (LoCs)
+scalable and affordable.
 
 [allen]: https://www.cs.washington.edu
 [plse]:  http://uwplse.org
 [misl]:  http://misl.cs.washington.edu
 [puddle]: http://misl.cs.washington.edu/projects/fluidics.html
+[egg]: https://github.com/mwillsey/egg
+[sampl]: https://sampl.cs.washington.edu/
 
 
 </section>
@@ -30,12 +40,12 @@ way to program these devices.
 
 ## News
 
-- 2020 Apr
-  - I've been working on this e-graph library called 
-    [egg](https://github.com/mwillsey/egg) for a while.
-    I and my fellow egg-heads put out a 
-    [paper](/papers/egg)
+- 2020 Jun
+  - I've been working on this e-graph library called [egg] for a while.
+    I and my fellow egg-heads put out a [paper](/papers/egg)
     describing the system and some of its novel ideas.
+  - I'm doing a summer internship at [OctoML](https://octoml.ai/) using [egg]
+    to optimize parts of the TVM compiler stack.
     
 - 2020 Mar
   - Some friends and I wrote a fun [paper](/papers/pldi-szalinski) about
